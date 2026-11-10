@@ -1,0 +1,1 @@
+-- 03-donnees-initiales.sql - données de référence (catégories).

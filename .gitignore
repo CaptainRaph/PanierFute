@@ -1,0 +1,22 @@
+# Dépendances
+node_modules/
+
+# Résultats de build
+dist/
+
+# Variables d'environnement (seuls les fichiers .env.exemple sont versionnés)
+.env
+.env.*
+!.env.exemple
+
+# Dossier local de la CLI Supabase
+supabase/
+
+# Journaux
+*.log
+
+# Système et éditeur
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

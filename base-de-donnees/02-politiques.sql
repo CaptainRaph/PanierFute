@@ -1,0 +1,2 @@
+-- 02-politiques.sql - activation du Row Level Security et politiques : un
+-- utilisateur ne lit et n'écrit que ses propres lignes.

@@ -1,0 +1,2 @@
+-- 04-fonctions.sql - fonctions SQL appelées par l'application,
+-- dont l'enregistrement d'un ticket et de ses articles en une seule transaction.

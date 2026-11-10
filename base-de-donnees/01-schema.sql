@@ -1,0 +1,2 @@
+-- 01-schema.sql - tables, clés et contraintes de la base PanierFûté.
+-- À exécuter en premier dans l'éditeur SQL de Supabase.
