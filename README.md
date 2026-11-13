@@ -11,8 +11,8 @@ l'application suggère des idées de repas.
 Projet libre du cours **8WEB101 - Conception et programmation de sites Web**
 (UQAC, automne 2026).
 
-**Site en ligne :** _à venir (mise en ligne de la version bêta prévue le
-10 décembre)_
+**Site en ligne :** https://captainraph.github.io/PanierFute/ (version bêta
+prévue le 10 décembre)
 
 ## Équipe
 
@@ -73,6 +73,7 @@ avec Supabase ; il n'y a pas de serveur applicatif à héberger.
 ### Organisation du dépôt
 
 ```
+.github/workflows/    Déploiement automatique sur GitHub Pages
 index.html            Page unique du site
 src/
   pages/              Un composant par page du site
@@ -118,7 +119,14 @@ Prérequis : [Node.js](https://nodejs.org) 22 ou plus récent, et un projet
    npm run dev
    ```
 
-   Il est disponible sur http://localhost:5173.
+   Il est disponible sur http://localhost:5173/PanierFute/.
+
+## Mise en ligne
+
+Le site est hébergé sur [GitHub Pages](https://pages.github.com). À chaque push
+sur la branche `main`, le fichier `.github/workflows/deploiement.yml` vérifie le
+code (ESLint et tests), construit le site et le publie. Le site construit
+n'est jamais ajouté au dépôt : seul le code source y figure.
 
 ## Commandes
 
