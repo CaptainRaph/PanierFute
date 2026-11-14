@@ -1,2 +1,90 @@
 /* variables.css - variables CSS globales : couleurs, espacements, rayons,
    polices. Seul endroit où ces valeurs sont écrites en dur. */
+
+:root {
+  /* ---- Couleurs : vert, noir et blanc ---- */
+
+  /* Vert principal : boutons, liens, éléments actifs */
+  --couleur-primaire: #5c7314;
+  --couleur-primaire-foncee: #3d4d0d;
+  --couleur-sombre: #1c1c1c;
+
+  /* Fonds : la page est légèrement teintée, les cartes et panneaux (surface)
+     sont blancs pour s'en détacher. */
+  --couleur-fond: #f6f3f2;
+  --couleur-fond-clair: #e9ede5;
+  --couleur-surface: #ffffff;
+
+  /* Texte */
+  --couleur-texte: #1c1c1c;
+  --couleur-texte-discret: #626262;
+  --couleur-texte-inverse: #ffffff;
+
+  /* Bordures */
+  --couleur-bordure: #d4d4cc;
+  --couleur-bordure-accentuee: #b8c1b2;
+  /* Bordure des champs de saisie : plus foncée que les autres. */
+  --couleur-bordure-champ: #7b8474;
+
+  /* Survol */
+  --couleur-survol: #f7f9f6;
+  --couleur-survol-leger: rgb(0 0 0 / 5%);
+
+  /* Erreurs et actions destructrices */
+  --couleur-danger: #c0392b;
+  --couleur-danger-foncee: #a93226;
+  --couleur-danger-fond: #fceae8;
+
+  /* Contour de focus clavier */
+  --couleur-focus: var(--couleur-sombre);
+
+  /* ---- Polices ---- */
+  /* Polices du système : aucune police à télécharger, affichage immédiat. */
+  --police-base:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* ---- Tailles de texte ---- */
+  --taille-xs: 0.8125rem;
+  --taille-s: 0.875rem;
+  --taille-m: 1rem;
+  --taille-l: 1.125rem;
+  --taille-xl: 1.375rem;
+  --taille-xxl: 2rem;
+
+  --graisse-normale: 400;
+  --graisse-forte: 700;
+
+  --interligne-texte: 1.5;
+  --interligne-titre: 1.2;
+
+  /* ---- Espacements ---- */
+  --espace-xxs: 0.25rem;
+  --espace-xs: 0.5rem;
+  --espace-s: 0.75rem;
+  --espace-m: 1rem;
+  --espace-l: 1.5rem;
+  --espace-xl: 2rem;
+  --espace-xxl: 4rem;
+
+  /* ---- Rayons d'arrondi ---- */
+  --rayon-s: 8px;
+  --rayon-m: 12px;
+  --rayon-l: 16px;
+  --rayon-pilule: 20px;
+  --rayon-cercle: 50%;
+
+  /* ---- Détails ---- */
+  --epaisseur-trait: 1px;
+  --epaisseur-accent: 3px;
+  --decalage-soulignement: 0.2em;
+  --ombre-carte: 0 1px 3px rgb(0 0 0 / 12%);
+
+  /* ---- Dimensions ---- */
+  /* Largeur maximale du contenu sur grand écran. */
+  --largeur-contenu-max: 72rem;
+  /* Taille minimale d'une cible tactile (44 px). */
+  --hauteur-cible-tactile: 2.75rem;
+
+  /* ---- Durées d'animation ---- */
+  --duree-transition: 0.2s;
+}

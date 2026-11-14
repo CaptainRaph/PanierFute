@@ -1,0 +1,13 @@
+/* MiseEnPage.css - styles du gabarit commun : colonne de la hauteur de
+   l'écran, avec le contenu qui occupe la place restante. */
+
+.mise-en-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.mise-en-page__contenu {
+  flex: 1;
+  padding: var(--espace-m);
+}

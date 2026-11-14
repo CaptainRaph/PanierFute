@@ -1,2 +1,138 @@
 /* base.css - styles de base communs à toute l'application : remise à
    zéro, typographie, focus clavier. Dépend de variables.css. */
+
+/* ---- Remise à zéro ---- */
+
+/* La largeur d'un élément inclut ses marges intérieures et sa bordure : les
+   mises en page en pourcentage ne débordent plus. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure {
+  margin: 0;
+}
+
+/* ---- Page ---- */
+
+html {
+  /* Empêche les navigateurs mobiles de grossir le texte en mode paysage. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  /* dvh : hauteur réellement visible sur téléphone, barre d'adresse comprise. */
+  min-height: 100dvh;
+  background-color: var(--couleur-fond);
+  color: var(--couleur-texte);
+  font-family: var(--police-base);
+  font-size: var(--taille-m);
+  font-weight: var(--graisse-normale);
+  line-height: var(--interligne-texte);
+}
+
+/* ---- Typographie ---- */
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: var(--graisse-forte);
+  line-height: var(--interligne-titre);
+  /* Un mot très long (libellé de ticket) ne fait pas déborder la page. */
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: var(--taille-xxl);
+}
+
+h2 {
+  font-size: var(--taille-xl);
+}
+
+h3 {
+  font-size: var(--taille-l);
+}
+
+h4 {
+  font-size: var(--taille-m);
+}
+
+p {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--couleur-primaire-foncee);
+  text-underline-offset: var(--decalage-soulignement);
+}
+
+a:hover {
+  color: var(--couleur-primaire);
+}
+
+/* ---- Médias ---- */
+
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+/* ---- Formulaires ---- */
+
+/* Par défaut, les champs et les boutons n'héritent pas de la police de la page. */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* ---- Focus clavier ---- */
+
+/* :focus-visible n'affiche le contour qu'à la navigation au clavier, pas au
+   clic. Le décalage détache le contour de l'élément pour qu'il reste lisible
+   sur un bouton vert comme sur un fond blanc. */
+:focus-visible {
+  outline: var(--epaisseur-accent) solid var(--couleur-focus);
+  outline-offset: var(--epaisseur-accent);
+}
+
+/* ---- Préférences de l'utilisateur ---- */
+
+/* Respecte le réglage système « réduire les animations ». */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s;
+    animation-duration: 0s;
+  }
+}
