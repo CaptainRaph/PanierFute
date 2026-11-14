@@ -1,0 +1,90 @@
+/* BarreNavigation.css - styles du menu principal : barre collée en bas de
+   l'écran sur téléphone, barre horizontale sous l'en-tête à partir de la
+   tablette. */
+
+/* ---- Barre (mobile) ---- */
+
+.barre-navigation {
+  /* MiseEnPage empile ses éléments en colonne : order place la barre après le
+     contenu, et sticky la garde visible en bas de l'écran pendant le
+     défilement, à portée de pouce. */
+  order: 1;
+  position: sticky;
+  bottom: 0;
+  background-color: var(--couleur-surface);
+  border-top: var(--epaisseur-trait) solid var(--couleur-bordure);
+}
+
+.barre-navigation__liste {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
+
+/* Les cinq entrées se partagent la largeur à parts égales. */
+.barre-navigation__element {
+  flex: 1;
+}
+
+/* ---- Liens ---- */
+
+.barre-navigation__lien {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--hauteur-cible-tactile);
+  padding: var(--espace-xs) var(--espace-xxs);
+  /* Trait transparent : réserve la place du trait du lien actif, pour que le
+     texte ne bouge pas quand on change de page. */
+  border-top: var(--epaisseur-accent) solid transparent;
+  color: var(--couleur-texte-discret);
+  font-size: var(--taille-xs);
+  text-decoration: none;
+  transition: background-color var(--duree-transition);
+}
+
+.barre-navigation__lien:hover {
+  background-color: var(--couleur-survol);
+  color: var(--couleur-texte);
+}
+
+/* Lien de la page courante : signalé par la couleur, la graisse et un trait,
+   pas par la couleur seule. */
+.barre-navigation__lien[aria-current='page'] {
+  border-top-color: var(--couleur-primaire);
+  color: var(--couleur-primaire-foncee);
+  font-weight: var(--graisse-forte);
+}
+
+/* ---- Tablette et desktop ---- */
+
+@media (min-width: 768px) {
+  /* La barre reprend sa place naturelle, sous l'en-tête. */
+  .barre-navigation {
+    order: 0;
+    position: static;
+    border-top: none;
+    border-bottom: var(--epaisseur-trait) solid var(--couleur-bordure);
+  }
+
+  .barre-navigation__liste {
+    justify-content: center;
+    gap: var(--espace-m);
+  }
+
+  .barre-navigation__element {
+    flex: none;
+  }
+
+  /* Le trait du lien actif passe en bas, contre la bordure de la barre. */
+  .barre-navigation__lien {
+    padding: var(--espace-s) var(--espace-m);
+    border-top: none;
+    border-bottom: var(--epaisseur-accent) solid transparent;
+    font-size: var(--taille-m);
+  }
+
+  .barre-navigation__lien[aria-current='page'] {
+    border-bottom-color: var(--couleur-primaire);
+  }
+}

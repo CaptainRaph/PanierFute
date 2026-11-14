@@ -13,17 +13,23 @@ import PageInventaire from './pages/PageInventaire.jsx';
 import PageRepas from './pages/PageRepas.jsx';
 import PageProfil from './pages/PageProfil.jsx';
 import PageIntrouvable from './pages/PageIntrouvable.jsx';
+import MiseEnPage from './composants/MiseEnPage.jsx';
 
 const routes = [
-  { path: CHEMINS.TABLEAU_DE_BORD, element: <PageTableauDeBord /> },
   { path: CHEMINS.CONNEXION, element: <PageConnexion /> },
   { path: CHEMINS.INSCRIPTION, element: <PageInscription /> },
-  { path: CHEMINS.TICKETS, element: <PageTickets /> },
-  { path: CHEMINS.NOUVEAU_TICKET, element: <PageNouveauTicket /> },
-  { path: CHEMINS.DETAIL_TICKET, element: <PageDetailTicket /> },
-  { path: CHEMINS.INVENTAIRE, element: <PageInventaire /> },
-  { path: CHEMINS.REPAS, element: <PageRepas /> },
-  { path: CHEMINS.PROFIL, element: <PageProfil /> },
+  {
+    element: <MiseEnPage />,
+    children: [
+      { path: CHEMINS.TABLEAU_DE_BORD, element: <PageTableauDeBord /> },
+      { path: CHEMINS.TICKETS, element: <PageTickets /> },
+      { path: CHEMINS.NOUVEAU_TICKET, element: <PageNouveauTicket /> },
+      { path: CHEMINS.DETAIL_TICKET, element: <PageDetailTicket /> },
+      { path: CHEMINS.INVENTAIRE, element: <PageInventaire /> },
+      { path: CHEMINS.REPAS, element: <PageRepas /> },
+      { path: CHEMINS.PROFIL, element: <PageProfil /> },
+    ],
+  },
   { path: '*', element: <PageIntrouvable /> },
 ];
 
