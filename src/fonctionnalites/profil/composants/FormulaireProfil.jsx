@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Bouton from '../../../composants/Bouton.jsx';
 import Champ from '../../../composants/Champ.jsx';
 import MessageErreur from '../../../composants/MessageErreur.jsx';
-import { centsVersTexte, lirePrix } from '../../../domaine/montants.js';
+import { centsVersTexte, texteVersCents } from '../../../domaine/montants.js';
 import { validerProfil } from '../../../domaine/validation.js';
 
 function FormulaireProfil({ profil, onEnregistrer }) {
@@ -30,7 +30,7 @@ function FormulaireProfil({ profil, onEnregistrer }) {
     try {
       await onEnregistrer({
         prenom: prenom.trim(),
-        budgetMensuelCents: lirePrix(budget),
+        budgetMensuelCents: texteVersCents(budget),
       });
       setEnregistre(true);
     } catch (err) {

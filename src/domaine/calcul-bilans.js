@@ -2,7 +2,7 @@
 // période. Fonctions pures.
 
 import { ajouterJours, texteVersDate, dateVersTexte } from './dates.js';
-import { additionner } from './montants.js';
+import { additionnerCents } from './montants.js';
 
 // Les tickets reçus ont la forme renvoyée par Supabase :
 // { date_achat: '2026-11-20', total_cents: 1250,
@@ -28,7 +28,7 @@ export function bornesPeriode(periode, jour) {
 
 // Total payé (taxes comprises) pour une liste de tickets.
 export function totalDesTickets(tickets) {
-  return additionner(tickets.map((ticket) => ticket.total_cents));
+  return additionnerCents(tickets.map((ticket) => ticket.total_cents));
 }
 
 // Total des articles par catégorie, du plus gros au plus petit (hors taxes).

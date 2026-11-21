@@ -7,7 +7,7 @@ import Bouton from '../../../composants/Bouton.jsx';
 import Champ from '../../../composants/Champ.jsx';
 import MessageErreur from '../../../composants/MessageErreur.jsx';
 import { CATEGORIE_PAR_DEFAUT, trouverCategorie } from '../../../domaine/classification.js';
-import { additionner, centsVersTexte, lirePrix } from '../../../domaine/montants.js';
+import { additionnerCents, centsVersTexte, texteVersCents } from '../../../domaine/montants.js';
 import { lireQuantite, validerTicket } from '../../../domaine/validation.js';
 import { dateDuJour } from '../../../utilitaires/format-date.js';
 import { formaterMontant } from '../../../utilitaires/format-montant.js';
@@ -60,8 +60,10 @@ function RevisionTicket({ ticketInitial, categories, onEnregistrer }) {
   const [enCours, setEnCours] = useState(false);
 
   // Calcule le total en direct à partir des articles et des taxes.
-  const totalArticlesCents = additionner(articles.map((article) => lirePrix(article.prix) ?? 0));
-  const totalCents = totalArticlesCents + (lirePrix(taxes) ?? 0);
+  const totalArticlesCents = additionnerCents(
+    articles.map((article) => texteVersCents(article.prix) ?? 0),
+  );
+  const totalCents = totalArticlesCents + (texteVersCents(taxes) ?? 0);
 
   function modifierArticle(cleLocale, champ, valeur) {
     setArticles((liste) =>
@@ -105,13 +107,13 @@ function RevisionTicket({ ticketInitial, categories, onEnregistrer }) {
       await onEnregistrer({
         enseigne: enseigne.trim(),
         dateAchat,
-        taxesCents: lirePrix(taxes),
+        taxesCents: texteVersCents(taxes),
         totalCents,
         articles: articles.map((article) => ({
           libelle_brut: article.libelleBrut,
           nom: article.nom.trim(),
           quantite: lireQuantite(article.quantite),
-          prix_cents: lirePrix(article.prix),
+          prix_cents: texteVersCents(article.prix),
           categorie_id: article.categorieId,
         })),
       });
