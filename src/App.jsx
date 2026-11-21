@@ -1,11 +1,29 @@
-// App.jsx - composant racine. À terme : fournisseur de session
-// (ContexteSession) autour du routeur défini dans routes.jsx.
+// App.jsx - composant racine : fournisseur de session (ContexteSession)
+// autour du routeur défini dans routes.jsx.
 import { RouterProvider } from 'react-router';
 
+import FournisseurSession from './fonctionnalites/authentification/ContexteSession.jsx';
 import { routeur } from './routes.jsx';
+import { supabaseEstConfigure } from './services/supabase.js';
 
 function App() {
-  return <RouterProvider router={routeur} />;
+  if (!supabaseEstConfigure) {
+    return (
+      <main className="page-accueil">
+        <h1>Configuration manquante</h1>
+        <p>
+          Copie le fichier <code>.env.exemple</code> en <code>.env</code>, renseigne l'URL et la clé
+          de ton projet Supabase, puis relance <code>npm run dev</code>.
+        </p>
+      </main>
+    );
+  }
+
+  return (
+    <FournisseurSession>
+      <RouterProvider router={routeur} />
+    </FournisseurSession>
+  );
 }
 
 export default App;

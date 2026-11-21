@@ -14,12 +14,18 @@ import PageRepas from './pages/PageRepas.jsx';
 import PageProfil from './pages/PageProfil.jsx';
 import PageIntrouvable from './pages/PageIntrouvable.jsx';
 import MiseEnPage from './composants/MiseEnPage.jsx';
+import RouteProtegee from './fonctionnalites/authentification/composants/RouteProtegee.jsx';
 
 const routes = [
   { path: CHEMINS.CONNEXION, element: <PageConnexion /> },
   { path: CHEMINS.INSCRIPTION, element: <PageInscription /> },
   {
-    element: <MiseEnPage />,
+    // Toutes les pages ci-dessous demandent d'être connecté.
+    element: (
+      <RouteProtegee>
+        <MiseEnPage />
+      </RouteProtegee>
+    ),
     children: [
       { path: CHEMINS.TABLEAU_DE_BORD, element: <PageTableauDeBord /> },
       { path: CHEMINS.TICKETS, element: <PageTickets /> },
