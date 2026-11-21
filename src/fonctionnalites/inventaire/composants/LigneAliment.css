@@ -1,0 +1,8 @@
+/* LigneAliment.css - alignement du nom de l'aliment et de ses boutons. */
+
+.ligne-aliment {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
