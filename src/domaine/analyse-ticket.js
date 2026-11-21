@@ -3,7 +3,7 @@
 
 import { ENSEIGNES } from '../donnees/dictionnaire-enseignes.js';
 import { nettoyerLibelle } from './classification.js';
-import { lirePrix } from './montants.js';
+import { texteVersCents } from './montants.js';
 import { normaliser } from './texte.js';
 
 // Une ligne d'article se termine par un prix, parfois suivi d'une lettre de
@@ -76,7 +76,7 @@ export function analyserTexteTicket(texte) {
       continue;
     }
     const libelle = correspondance[1].trim();
-    const prixCents = lirePrix(correspondance[2]);
+    const prixCents = texteVersCents(correspondance[2]);
     const libelleNormalise = normaliser(libelle);
     const mots = libelleNormalise.split(/[^a-z]+/);
 

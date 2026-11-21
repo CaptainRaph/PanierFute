@@ -1,7 +1,7 @@
 // validation.js - règles de validation d'un ticket, d'un aliment et d'un
 // profil avant enregistrement. Fonctions pures.
 
-import { lirePrix } from './montants.js';
+import { texteVersCents } from './montants.js';
 
 // Chaque fonction reçoit les valeurs des champs du formulaire (du texte) et
 // renvoie la liste des erreurs trouvées : une liste vide veut dire que tout
@@ -21,7 +21,7 @@ export function validerTicket(ticket) {
   if (ticket.dateAchat === '') {
     erreurs.push("Indique la date d'achat.");
   }
-  if (lirePrix(ticket.taxes) === null) {
+  if (texteVersCents(ticket.taxes) === null) {
     erreurs.push('Les taxes doivent être un montant (ex. : 1,50).');
   }
   if (ticket.articles.length === 0) {
@@ -33,7 +33,7 @@ export function validerTicket(ticket) {
     if (article.nom.trim() === '') {
       erreurs.push(`Article ${numero} : indique un nom.`);
     }
-    if (lirePrix(article.prix) === null) {
+    if (texteVersCents(article.prix) === null) {
       erreurs.push(`Article ${numero} : le prix n'est pas valide.`);
     }
     if (!(lireQuantite(article.quantite) > 0)) {
@@ -61,7 +61,7 @@ export function validerProfil(profil) {
   if (prenom === '' || prenom.length > 50) {
     erreurs.push('Le prénom doit contenir entre 1 et 50 caractères.');
   }
-  if (lirePrix(profil.budget) === null) {
+  if (texteVersCents(profil.budget) === null) {
     erreurs.push('Le budget doit être un montant (ex. : 300 ou 250,50).');
   }
   return erreurs;
