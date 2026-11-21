@@ -5,9 +5,12 @@
 // en JavaScript, alors que 10 + 20 donne bien 30.
 
 // Lit un prix tapé par l'utilisateur ou lu sur un ticket (« 3,99 », « 3.99 $ »,
-// « 12 ») et le renvoie en cents (399). Renvoie null si ce n'est pas un prix.
-export function lirePrix(texte) {
-  const nettoye = String(texte).replace('$', '').replace(',', '.').trim();
+// « 12 », « 1 234,50 ») et le renvoie en cents (399). Renvoie null si ce n'est
+// pas un prix.
+export function texteVersCents(texte) {
+  // \s désigne tout caractère d'espacement (espace, espace insécable des
+  // milliers...) et g les retire tous, pas seulement le premier.
+  const nettoye = String(texte).replace('$', '').replace(',', '.').replace(/\s/g, '');
   if (!/^\d+(\.\d{1,2})?$/.test(nettoye)) {
     return null;
   }
@@ -15,7 +18,7 @@ export function lirePrix(texte) {
 }
 
 // Additionne une liste de montants en cents.
-export function additionner(montants) {
+export function additionnerCents(montants) {
   return montants.reduce((somme, montant) => somme + montant, 0);
 }
 
