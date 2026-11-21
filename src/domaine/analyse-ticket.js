@@ -4,7 +4,7 @@
 import { ENSEIGNES } from '../donnees/dictionnaire-enseignes.js';
 import { nettoyerLibelle } from './classification.js';
 import { texteVersCents } from './montants.js';
-import { normaliser } from './texte.js';
+import { normaliserTexte } from './texte.js';
 
 // Une ligne d'article se termine par un prix, parfois suivi d'une lettre de
 // taxe : « LAIT 2% 4L     5,49 F ». On garde le texte avant le prix et le prix.
@@ -47,9 +47,9 @@ export function trouverDate(texte) {
 // Cherche une enseigne connue dans les premières lignes ; sinon, prend la
 // première ligne (souvent le nom du magasin).
 export function trouverEnseigne(lignes) {
-  const debut = lignes.slice(0, 5).map(normaliser);
+  const debut = lignes.slice(0, 5).map(normaliserTexte);
   for (const enseigne of ENSEIGNES) {
-    if (debut.some((ligne) => ligne.includes(normaliser(enseigne)))) {
+    if (debut.some((ligne) => ligne.includes(normaliserTexte(enseigne)))) {
       return enseigne;
     }
   }
@@ -77,7 +77,7 @@ export function analyserTexteTicket(texte) {
     }
     const libelle = correspondance[1].trim();
     const prixCents = texteVersCents(correspondance[2]);
-    const libelleNormalise = normaliser(libelle);
+    const libelleNormalise = normaliserTexte(libelle);
     const mots = libelleNormalise.split(/[^a-z]+/);
 
     if (MOTS_A_IGNORER.some((mot) => libelleNormalise.includes(mot))) {

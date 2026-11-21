@@ -3,7 +3,7 @@
 
 // Met en minuscules, remplace « œ » par « oe » et retire les accents :
 // « Pâtes » -> « pates », « Œufs » -> « oeufs ».
-export function normaliser(texte) {
+export function normaliserTexte(texte) {
   return texte
     .toLowerCase()
     .replaceAll('œ', 'oe')
@@ -15,6 +15,6 @@ export function normaliser(texte) {
 // Indique si un des mots du texte commence par « mot ».
 // Ex. : contientMot('pommes gala', 'pomme') -> true (le pluriel est accepté).
 export function contientMot(texte, mot) {
-  const mots = normaliser(texte).split(/[^a-z0-9]+/);
+  const mots = normaliserTexte(texte).split(/[^a-z0-9]+/);
   return mots.some((motDuTexte) => motDuTexte.startsWith(mot));
 }
