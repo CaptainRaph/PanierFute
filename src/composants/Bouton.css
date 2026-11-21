@@ -1,0 +1,52 @@
+/* Bouton.css - styles des boutons. La classe « bouton » sert aussi aux liens
+   qui doivent ressembler à un bouton (<Link className="bouton ...">). */
+
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espace-xs);
+  min-height: var(--hauteur-cible-tactile);
+  padding: var(--espace-xs) var(--espace-m);
+  border: var(--epaisseur-trait) solid transparent;
+  border-radius: var(--rayon-pilule);
+  font-weight: var(--graisse-forte);
+  text-decoration: none;
+  transition: background-color var(--duree-transition);
+}
+
+.bouton:disabled {
+  opacity: 0.6;
+}
+
+.bouton--principal {
+  background-color: var(--couleur-primaire);
+  color: var(--couleur-texte-inverse);
+}
+
+.bouton--principal:hover:not(:disabled) {
+  background-color: var(--couleur-primaire-foncee);
+  color: var(--couleur-texte-inverse);
+}
+
+.bouton--secondaire {
+  background-color: var(--couleur-surface);
+  border-color: var(--couleur-bordure-champ);
+  color: var(--couleur-texte);
+}
+
+.bouton--secondaire:hover:not(:disabled) {
+  background-color: var(--couleur-survol);
+  color: var(--couleur-texte);
+}
+
+.bouton--danger {
+  background-color: var(--couleur-surface);
+  border-color: var(--couleur-danger);
+  color: var(--couleur-danger);
+}
+
+.bouton--danger:hover:not(:disabled) {
+  background-color: var(--couleur-danger-fond);
+  color: var(--couleur-danger-foncee);
+}

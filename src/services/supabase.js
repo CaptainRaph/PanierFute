@@ -2,7 +2,11 @@
 // variables d'environnement. Importé seulement par les fichiers *.requetes.js.
 import { createClient } from '@supabase/supabase-js';
 
-export const client = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_CLE_ANON,
-);
+const url = import.meta.env.VITE_SUPABASE_URL;
+const cleAnon = import.meta.env.VITE_SUPABASE_CLE_ANON;
+
+// Sans ces deux variables (fichier .env absent), createClient lance une erreur
+// et la page resterait blanche : App affiche plutôt un message clair.
+export const supabaseEstConfigure = Boolean(url && cleAnon);
+
+export const client = supabaseEstConfigure ? createClient(url, cleAnon) : null;

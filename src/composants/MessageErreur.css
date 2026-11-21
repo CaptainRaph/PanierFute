@@ -1,0 +1,21 @@
+/* MessageErreur.css - encadré des messages d'erreur, et des messages de
+   réussite (classe message-succes, utilisée directement dans les pages). */
+
+.message-erreur,
+.message-succes {
+  padding: var(--espace-s) var(--espace-m);
+  border-radius: var(--rayon-s);
+  border-left: var(--epaisseur-accent) solid;
+}
+
+.message-erreur {
+  background-color: var(--couleur-danger-fond);
+  border-color: var(--couleur-danger);
+  color: var(--couleur-danger-foncee);
+}
+
+.message-succes {
+  background-color: var(--couleur-fond-clair);
+  border-color: var(--couleur-primaire);
+  color: var(--couleur-primaire-foncee);
+}

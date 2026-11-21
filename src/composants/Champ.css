@@ -1,0 +1,22 @@
+/* Champ.css - styles des champs de formulaire. La classe « champ__saisie »
+   sert aussi aux listes déroulantes (select). */
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-xxs);
+}
+
+.champ__libelle {
+  font-size: var(--taille-s);
+  font-weight: var(--graisse-forte);
+}
+
+.champ__saisie {
+  width: 100%;
+  min-height: var(--hauteur-cible-tactile);
+  padding: var(--espace-xs) var(--espace-s);
+  background-color: var(--couleur-surface);
+  border: var(--epaisseur-trait) solid var(--couleur-bordure-champ);
+  border-radius: var(--rayon-s);
+}

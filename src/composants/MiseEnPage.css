@@ -7,7 +7,19 @@
   min-height: 100dvh;
 }
 
+.mise-en-page__entete {
+  padding: var(--espace-s) var(--espace-m);
+  background-color: var(--couleur-primaire);
+  color: var(--couleur-texte-inverse);
+  font-size: var(--taille-l);
+  font-weight: var(--graisse-forte);
+  text-align: center;
+}
+
 .mise-en-page__contenu {
   flex: 1;
+  width: 100%;
+  max-width: var(--largeur-contenu-max);
+  margin: 0 auto;
   padding: var(--espace-m);
 }

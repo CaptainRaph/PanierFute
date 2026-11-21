@@ -7,6 +7,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
 import './styles/variables.css';
 import './styles/base.css';
+import './styles/communs.css';
 
 createRoot(document.getElementById('racine')).render(
   <StrictMode>

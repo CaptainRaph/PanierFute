@@ -1,0 +1,97 @@
+/* communs.css - classes de mise en forme réutilisées par plusieurs pages
+   (cartes, formulaires, tableaux, en-têtes de page). Dépend de variables.css. */
+
+/* ---- Contenu des pages ---- */
+
+/* Espace régulier entre les blocs d'une page. */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-l);
+}
+
+/* Titre de page avec, à droite, un bouton d'action. */
+.entete-page {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espace-s);
+}
+
+.carte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-s);
+  padding: var(--espace-m);
+  background-color: var(--couleur-surface);
+  border-radius: var(--rayon-m);
+  box-shadow: var(--ombre-carte);
+}
+
+.texte-discret {
+  color: var(--couleur-texte-discret);
+  font-size: var(--taille-s);
+}
+
+/* Liste sans puces, éléments espacés. */
+.liste-simple {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-s);
+  padding: 0;
+  list-style: none;
+}
+
+/* Rangée de boutons. */
+.groupe-boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espace-xs);
+}
+
+/* ---- Formulaires ---- */
+
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-m);
+}
+
+/* ---- Tableaux ---- */
+
+.tableau {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableau th,
+.tableau td {
+  padding: var(--espace-xs);
+  border-bottom: var(--epaisseur-trait) solid var(--couleur-bordure);
+  text-align: left;
+}
+
+/* Colonnes de montants alignées à droite pour comparer les chiffres. */
+.tableau .nombre {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ---- Pages de connexion et d'inscription ---- */
+
+.page-accueil {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--espace-l);
+  max-width: 26rem;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: var(--espace-m);
+}
+
+.page-accueil__titre {
+  color: var(--couleur-primaire-foncee);
+  text-align: center;
+}
