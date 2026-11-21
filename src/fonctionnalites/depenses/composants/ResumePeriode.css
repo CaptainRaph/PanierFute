@@ -1,0 +1,30 @@
+/* ResumePeriode.css - affichage du total et de la barre de budget. */
+
+.resume-periode__total {
+  font-size: var(--taille-xxl);
+  font-weight: var(--graisse-forte);
+  color: var(--couleur-primaire-foncee);
+}
+
+.resume-periode__budget {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-xs);
+}
+
+.resume-periode__barre {
+  height: 0.75rem;
+  overflow: hidden;
+  background-color: var(--couleur-fond-clair);
+  border-radius: var(--rayon-pilule);
+}
+
+.resume-periode__progression {
+  height: 100%;
+  background-color: var(--couleur-primaire);
+  transition: width var(--duree-transition);
+}
+
+.resume-periode__progression--depasse {
+  background-color: var(--couleur-danger);
+}

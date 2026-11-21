@@ -1,0 +1,15 @@
+/* PageTableauDeBord.css - disposition côte à côte des deux graphiques sur
+   grand écran. */
+
+.grille-graphiques {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espace-m);
+}
+
+@media (min-width: 768px) {
+  .grille-graphiques {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
