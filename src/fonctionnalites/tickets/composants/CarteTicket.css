@@ -1,0 +1,25 @@
+/* CarteTicket.css - lien d'un ticket dans l'historique. */
+
+.carte-ticket {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--couleur-texte);
+  text-decoration: none;
+  transition: background-color var(--duree-transition);
+}
+
+.carte-ticket:hover {
+  background-color: var(--couleur-survol);
+  color: var(--couleur-texte);
+}
+
+.carte-ticket__enseigne {
+  font-size: var(--taille-l);
+}
+
+.carte-ticket__total {
+  font-size: var(--taille-l);
+  color: var(--couleur-primaire-foncee);
+  white-space: nowrap;
+}

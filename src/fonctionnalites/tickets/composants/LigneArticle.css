@@ -1,0 +1,18 @@
+/* LigneArticle.css - disposition d'une ligne d'article dans le formulaire
+   de ticket : empilée sur téléphone, en grille sur grand écran. */
+
+.ligne-article {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espace-xs);
+  padding: var(--espace-s);
+  background-color: var(--couleur-fond);
+  border-radius: var(--rayon-s);
+}
+
+@media (min-width: 768px) {
+  .ligne-article {
+    grid-template-columns: 2fr 0.7fr 0.9fr 1.4fr auto;
+    align-items: end;
+  }
+}
