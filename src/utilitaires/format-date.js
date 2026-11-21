@@ -1,10 +1,10 @@
 // format-date.js - affichage des dates et date du jour.
 
-import { lireDate, versTexteDate } from '../domaine/dates.js';
+import { dateVersTexte, versTexteDate } from '../domaine/dates.js';
 
 // « 2026-11-20 » -> « 20 nov. 2026 ».
 export function formaterDate(texte) {
-  return lireDate(texte).toLocaleDateString('fr-CA', {
+  return dateVersTexte(texte).toLocaleDateString('fr-CA', {
     day: 'numeric',
     month: 'short',
     year: 'numeric',
@@ -13,7 +13,7 @@ export function formaterDate(texte) {
 
 // « 2026-11-20 » -> « 20 nov. » (étiquettes des graphiques).
 export function formaterJourCourt(texte) {
-  return lireDate(texte).toLocaleDateString('fr-CA', { day: 'numeric', month: 'short' });
+  return dateVersTexte(texte).toLocaleDateString('fr-CA', { day: 'numeric', month: 'short' });
 }
 
 // Date du jour au format « AAAA-MM-JJ ».
