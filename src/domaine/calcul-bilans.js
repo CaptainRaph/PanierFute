@@ -1,7 +1,7 @@
 // calcul-bilans.js - agrège des articles en totaux par catégorie et par
 // période. Fonctions pures.
 
-import { ajouterJours, dateVersTexte, versTexteDate } from './dates.js';
+import { ajouterJours, texteVersDate, dateVersTexte } from './dates.js';
 import { additionner } from './montants.js';
 
 // Les tickets reçus ont la forme renvoyée par Supabase :
@@ -11,7 +11,7 @@ import { additionner } from './montants.js';
 // Renvoie le premier et le dernier jour de la semaine (du lundi au dimanche)
 // ou du mois qui contient « jour ».
 export function bornesPeriode(periode, jour) {
-  const date = dateVersTexte(jour);
+  const date = texteVersDate(jour);
 
   if (periode === 'semaine') {
     // getDay() vaut 0 le dimanche, 1 le lundi... : on recule jusqu'au lundi.
@@ -23,7 +23,7 @@ export function bornesPeriode(periode, jour) {
   const debut = new Date(date.getFullYear(), date.getMonth(), 1);
   // Le jour 0 du mois suivant est le dernier jour du mois courant.
   const fin = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  return { debut: versTexteDate(debut), fin: versTexteDate(fin) };
+  return { debut: dateVersTexte(debut), fin: dateVersTexte(fin) };
 }
 
 // Total payé (taxes comprises) pour une liste de tickets.
