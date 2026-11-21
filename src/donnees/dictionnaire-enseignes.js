@@ -18,9 +18,7 @@ export const ENSEIGNES = [
 ];
 
 // Mots-clés par catégorie (clé de la table « categories »), sans accents et en
-// minuscules. Un article est classé dans la première catégorie dont un mot-clé
-// correspond au début d'un de ses mots : l'ordre compte (« laitue » doit être
-// trouvé dans les fruits et légumes avant « lait » dans les produits laitiers).
+// minuscules.
 export const MOTS_CLES = {
   'fruits-legumes': [
     'pomme',
@@ -48,6 +46,7 @@ export const MOTS_CLES = {
     'celeri',
     'legume',
     'fruit',
+    'poireau',
   ],
   'viandes-poissons': [
     'poulet',
@@ -81,7 +80,7 @@ export const MOTS_CLES = {
   surgeles: ['surgele', 'congele', 'pizza'],
   epicerie: [
     'riz',
-    'pate',
+    'pates',
     'spaghetti',
     'macaroni',
     'nouille',
@@ -104,8 +103,22 @@ export const MOTS_CLES = {
     'confiture',
     'miel',
     'epice',
+    'mayonnaise',
+    'vinaigrette',
   ],
-  boissons: ['jus', 'eau', 'cafe', 'tisane', 'boisson', 'soda', 'cola', 'pepsi', 'biere', 'vin'],
+  boissons: [
+    'jus',
+    'eau',
+    'cafe',
+    'tisane',
+    'boisson',
+    'soda',
+    'cola',
+    'pepsi',
+    'biere',
+    'vin',
+    'the',
+  ],
   collations: [
     'chips',
     'croustille',
@@ -121,7 +134,7 @@ export const MOTS_CLES = {
   ],
   hygiene: [
     'savon',
-    'shampo',
+    'shampooing',
     'dentifrice',
     'brosse',
     'deodorant',

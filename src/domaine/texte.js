@@ -12,9 +12,9 @@ export function normaliserTexte(texte) {
     .trim();
 }
 
-// Indique si un des mots du texte commence par « mot ».
-// Ex. : contientMot('pommes gala', 'pomme') -> true (le pluriel est accepté).
+// Indique si un des mots du texte est « mot » ou son pluriel (« pomme »,
+// « pommes ») : « ail » ne doit pas reconnaître « ailes », ni « lait » « laitue ».
 export function contientMot(texte, mot) {
   const mots = normaliserTexte(texte).split(/[^a-z0-9]+/);
-  return mots.some((motDuTexte) => motDuTexte.startsWith(mot));
+  return mots.some((motDuTexte) => [mot, `${mot}s`, `${mot}x`].includes(motDuTexte));
 }
