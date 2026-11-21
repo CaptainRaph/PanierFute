@@ -6,9 +6,9 @@ function MessageErreur({ message }) {
   if (!message || message.length === 0) {
     return null;
   }
- // Set ne garde qu'un exemplaire de chaque texte : afficher deux fois la même
- // erreur n'aide pas l'utilisateur, et chaque texte peut servir de key.
- const messages = [...new Set(Array.isArray(message) ? message : [message])];
+  // Set ne garde qu'un exemplaire de chaque texte : afficher deux fois la même
+  // erreur n'aide pas l'utilisateur, et chaque texte peut servir de key.
+  const messages = [...new Set(Array.isArray(message) ? message : [message])];
 
   // role="alert" : le message est lu tout de suite par les lecteurs d'écran.
   return (
