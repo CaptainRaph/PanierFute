@@ -4,7 +4,7 @@
 // Ingrédients réutilisés dans plusieurs recettes. « mots » contient les
 // mots-clés (sans accents, en minuscules) qui permettent de les reconnaître
 // dans l'inventaire.
-const PATES = { nom: 'Pâtes', mots: ['pate', 'spaghetti', 'macaroni', 'penne', 'nouille'] };
+const PATES = { nom: 'Pâtes', mots: ['pates', 'spaghetti', 'macaroni', 'penne', 'nouille'] };
 const RIZ = { nom: 'Riz', mots: ['riz'] };
 const OEUFS = { nom: 'Œufs', mots: ['oeuf'] };
 const LAIT = { nom: 'Lait', mots: ['lait'] };
