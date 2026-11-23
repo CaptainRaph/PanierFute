@@ -9,10 +9,13 @@ const TRADUCTIONS = {
 };
 
 // S'utilise ainsi : const tickets = verifierReponse(await client.from(...)...);
-export function verifierReponse({ data, error }) {
+export function verifierReponseSupabase({ data, error }) {
   if (error) {
-    // Le message d'origine reste visible dans la console pour déboguer.
-    console.error(error);
+    // Le message d'origine de Supabase n'est affiché qu'en développement, pour
+    // déboguer : en production, la console reste vide.
+    if (import.meta.env.DEV) {
+      console.error(error);
+    }
     throw new Error(TRADUCTIONS[error.message] ?? 'Une erreur est survenue. Réessaie plus tard.');
   }
   return data;

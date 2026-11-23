@@ -1,10 +1,10 @@
 // tickets.requetes.js - lecture, création et suppression des tickets
 // dans Supabase.
 import { client } from '../../services/supabase.js';
-import { verifierReponse } from '../../services/erreur-requete.js';
+import { verifierReponseSupabase } from '../../services/erreur-requete.js';
 
 export async function listerTickets() {
-  return verifierReponse(
+  return verifierReponseSupabase(
     await client
       .from('tickets')
       .select('id, enseigne, date_achat, taxes_cents, total_cents')
@@ -14,7 +14,7 @@ export async function listerTickets() {
 }
 
 export async function lireTicket(idTicket) {
-  return verifierReponse(
+  return verifierReponseSupabase(
     await client
       .from('tickets')
       .select(
@@ -28,7 +28,7 @@ export async function lireTicket(idTicket) {
 // Appelle la fonction SQL enregistrer_ticket (voir base-de-donnees/04-fonctions.sql)
 // qui enregistre le ticket, ses articles et ajoute les aliments à l'inventaire.
 export async function enregistrerTicket({ enseigne, dateAchat, taxesCents, totalCents, articles }) {
-  return verifierReponse(
+  return verifierReponseSupabase(
     await client.rpc('enregistrer_ticket', {
       p_enseigne: enseigne,
       p_date_achat: dateAchat,
@@ -40,5 +40,5 @@ export async function enregistrerTicket({ enseigne, dateAchat, taxesCents, total
 }
 
 export async function supprimerTicket(idTicket) {
-  verifierReponse(await client.from('tickets').delete().eq('id', idTicket));
+  verifierReponseSupabase(await client.from('tickets').delete().eq('id', idTicket));
 }
