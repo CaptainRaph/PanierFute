@@ -1,10 +1,10 @@
 // profil.requetes.js - lecture et modification du profil utilisateur
 // dans Supabase.
 import { client } from '../../services/supabase.js';
-import { verifierReponse } from '../../services/erreur-requete.js';
+import { verifierReponseSupabase } from '../../services/erreur-requete.js';
 
 export async function lireProfil(idUtilisateur) {
-  return verifierReponse(
+  return verifierReponseSupabase(
     await client
       .from('profils')
       .select('id, prenom, budget_mensuel_cents')
@@ -14,7 +14,7 @@ export async function lireProfil(idUtilisateur) {
 }
 
 export async function modifierProfil(idUtilisateur, { prenom, budgetMensuelCents }) {
-  return verifierReponse(
+  return verifierReponseSupabase(
     await client
       .from('profils')
       .update({ prenom, budget_mensuel_cents: budgetMensuelCents })
