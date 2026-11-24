@@ -1,4 +1,4 @@
-// ContexteSession.jsx - fournit la session Supabase à toute l'application :
+// FournisseurSession.jsx - fournit la session Supabase à toute l'application :
 // n'importe quel composant peut savoir qui est connecté avec useSession().
 import { useEffect, useState } from 'react';
 

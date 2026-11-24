@@ -1,8 +1,8 @@
-// App.jsx - composant racine : fournisseur de session (ContexteSession)
+// App.jsx - composant racine : FournisseurSession (partage de la session)
 // autour du routeur défini dans routes.jsx.
 import { RouterProvider } from 'react-router';
 
-import FournisseurSession from './fonctionnalites/authentification/ContexteSession.jsx';
+import FournisseurSession from './fonctionnalites/authentification/FournisseurSession.jsx';
 import { routeur } from './routes.jsx';
 import { supabaseEstConfigure } from './services/supabase.js';
 
